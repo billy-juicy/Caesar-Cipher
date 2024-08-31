@@ -1,21 +1,24 @@
+# Пропишем алфавиты на русском и английском с двумя регистрами
 eng_lower_alphabet = 'abcdefghijklmnopqrstuvwxyz'
 eng_upper_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 rus_lower_alphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
 rus_upper_alphabet = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-symbol = [" ", ",", ".", "!", "?"]
+symbol = [" ", ",", ".", "!", "?"] # Не забудем написать также символы
 
+# Пропишем запросы вводной информации
 language = input('Выберите язык: английский - eng или русский - rus ')
 cipher = input('Выберите шифрование: зашифровать - encrypt или расшифровать - decrypt ')
 shift = int(input('Введите сдвиг: '))
 text = input('Введите текст: ')
 
+# Создадим функцию
 def my_cipher(language, cipher, shift, text):
     if language == 'eng':
-        power = 26
+        power = 26 # Переменная power означает мощность алфавита
     if language == 'rus':
         power = 32
     if cipher == 'decrypt':
-        shift = -shift
+        shift = -shift # Если мы расшифровываем текст, то сдвиг будет со знаком "-"
     for i in range(len(text)):
         if text[i].isalpha():
             if text[i] == text[i].upper():
@@ -41,4 +44,5 @@ def my_cipher(language, cipher, shift, text):
         else:
             print(text[i], end='')
 
+# Вызываем функцию
 my_cipher(language, cipher, shift, text)
